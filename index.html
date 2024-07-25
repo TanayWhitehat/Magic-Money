@@ -47,13 +47,35 @@
 
         function incrementSum() {
             currentTotal += 10;
-            document.getElementById("result").innerText = currentTotal + " rupees";
+            updateResult();
         }
 
         function decrementSum() {
             currentTotal -= 10;
+            updateResult();
+        }
+
+        function saveTotal() {
+            localStorage.setItem('savedTotal', currentTotal);
+        }
+
+        function loadTotal() {
+            const savedTotal = localStorage.getItem('savedTotal');
+            if (savedTotal !== null) {
+                currentTotal = parseInt(savedTotal);
+                updateResult();
+            }
+        }
+
+        function updateResult() {
             document.getElementById("result").innerText = currentTotal + " rupees";
         }
+
+        // Load total on page load
+        window.onload = loadTotal;
+
+        // Save total on page unload
+        window.onbeforeunload = saveTotal;
     </script>
 </body>
 </html>
