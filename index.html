@@ -41,6 +41,8 @@
     <p id="result">0 rupees</p>
     <button onclick="incrementSum()">Add 10 rupees</button>
     <button onclick="decrementSum()">Subtract 10 rupees</button>
+    <button onclick="saveTotal()">Save Total</button>
+    <button onclick="loadTotal()">Load Total</button>
 
     <script>
         let currentTotal = 0;
@@ -73,9 +75,6 @@
 
         // Load total on page load
         window.onload = loadTotal;
-
-        // Save total on page unload
-        window.onbeforeunload = saveTotal;
     </script>
 </body>
 </html>
